@@ -17,15 +17,15 @@ import {
 
 export const ProductList = props => {
     return <List {...props}>
-        <Datagrid>
+        <Datagrid rowClick="edit">
             <TextField source='id' />
             <TextField source='name' />
             <TextField source="price" />
             <TextField multiline source="description"/>
             <NumberField source="units"/>
             <UrlField source="mainPicture"/>   
-            <EditButton basePath='/categories' />
-            <DeleteButton basePath='/categories' />
+            <EditButton basePath='/products' />
+            <DeleteButton basePath='/products' />
         </Datagrid>
     </List>
 }
@@ -45,12 +45,12 @@ export const ProductCreate = props => (
 export const ProductEdit = props => (
     <Edit {...props}>
         <SimpleForm>
-            <TextField disabled source='id' />
-            <TextField source='name' />
-            <TextField source="price" />
-            <TextField multiline source="description"/>
-            <NumberField source="units"/>
-            <UrlField source="mainPicture"/> 
+            <TextInput disabled source='id' />
+            <TextInput source='name' />
+            <TextInput source="price" />
+            <TextInput multiline source="description"/>
+            <NumberInput source="units"/>
+            <TextInput source="mainPicture"/> 
         </SimpleForm>
     </Edit>
 );
