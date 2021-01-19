@@ -9,34 +9,48 @@ import {
     DeleteButton,
     SimpleForm,
     TextInput,
-    Edit
+    Edit,
+    UrlField,
+    NumberField,
+    NumberInput
 } from 'react-admin';
 
-export const CategoryList = props => {
+export const ProductList = props => {
     return <List {...props}>
         <Datagrid>
             <TextField source='id' />
             <TextField source='name' />
-            <DateField source="createdAt" />
+            <TextField source="price" />
+            <TextField multiline source="description"/>
+            <NumberField source="units"/>
+            <UrlField source="mainPicture"/>   
             <EditButton basePath='/categories' />
             <DeleteButton basePath='/categories' />
         </Datagrid>
     </List>
 }
 
-export const CategoryCreate = props => (
+export const ProductCreate = props => (
     <Create {...props}>
         <SimpleForm>
             <TextInput source='name' />
+            <TextInput  source="price" />
+            <TextInput  multiline source="description"/>
+            <NumberInput source="units"/>
+            <TextInput source="mainPicture"/>  
         </SimpleForm>
     </Create>
 );
 
-export const CategoryEdit = props => (
+export const ProductEdit = props => (
     <Edit {...props}>
         <SimpleForm>
             <TextField disabled source='id' />
             <TextField source='name' />
+            <TextField source="price" />
+            <TextField multiline source="description"/>
+            <NumberField source="units"/>
+            <UrlField source="mainPicture"/> 
         </SimpleForm>
     </Edit>
 );
