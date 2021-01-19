@@ -25,7 +25,7 @@ export const CategoryProductList = props => {
             <ReferenceField source='categoryId' reference='categories'>
                 <TextField source='name' />
             </ReferenceField>
-            <DeleteButton basePath='/products/:productId/categories/:categoryId' />
+            <DeleteButton/>
         </Datagrid>
     </List>
 }
