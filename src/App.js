@@ -6,6 +6,7 @@ import { CategoryProductCreate, CategoryProductList } from './components/Categor
 import { UserCreate, UserList } from './components/User';
 import authProvider from './providers/authProvider';
 import dataProvider from './providers/dataProvider';
+import { OrderList, OrderShow } from './components/Order';
 
 function App() {
   return (
