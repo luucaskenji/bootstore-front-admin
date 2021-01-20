@@ -24,8 +24,8 @@ export const ProductList = props => {
             <TextField multiline source="description"/>
             <NumberField source="units"/>
             <UrlField source="mainPicture"/>   
-            <EditButton basePath='/products' />
-            <DeleteButton basePath='/products' />
+            <EditButton/>
+            <DeleteButton/>
         </Datagrid>
     </List>
 }
