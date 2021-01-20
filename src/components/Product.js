@@ -12,7 +12,8 @@ import {
     Edit,
     UrlField,
     NumberField,
-    NumberInput
+    NumberInput,
+    ImageField
 } from 'react-admin';
 
 export const ProductList = props => {
@@ -23,7 +24,7 @@ export const ProductList = props => {
             <TextField source="price" />
             <TextField multiline source="description"/>
             <NumberField source="units"/>
-            <UrlField source="mainPicture"/>   
+            <ImageField source="mainPicture"/>   
             <EditButton/>
             <DeleteButton/>
         </Datagrid>
