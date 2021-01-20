@@ -22,6 +22,7 @@ export default {
             
             return Promise.reject();
         }
+        else return Promise.resolve();
     },
     checkAuth: () => {
         return localStorage.getItem('adminToken') ? Promise.resolve() : Promise.reject();
