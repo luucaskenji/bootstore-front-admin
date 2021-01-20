@@ -6,14 +6,16 @@ import { ProductCreate, ProductEdit, ProductList } from './components/Product';
 import { CategoryProductCreate, CategoryProductList } from './components/CategoryProduct';
 import { UserCreate, UserList } from './components/User';
 import authProvider from './providers/authProvider';
+import { OrderList, OrderShow } from './components/Order';
 
 function App() {
   return (
-    <Admin authProvider={authProvider} dataProvider={restProvider('http://localhost:3000/admin')}>
+    <Admin /*authProvider={authProvider}*/ dataProvider={restProvider('http://localhost:3000/admin')}>
       <Resource name='categories' list={CategoryList} create={CategoryCreate}/>
       <Resource name='products' list={ProductList} create={ProductCreate} edit={ProductEdit}/>
       <Resource name='categoryProducts' list={CategoryProductList} create={CategoryProductCreate}/>
       <Resource name='users' list={UserList} create={UserCreate}/>
+      <Resource name='orders' list={OrderList} show={OrderShow}/>
     </Admin>
   );
 }
