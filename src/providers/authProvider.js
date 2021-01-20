@@ -1,31 +1,30 @@
-import { assertExpressionStatement } from "@babel/types";
+import axios from 'axios';
 
-// in src/authProvider.js
 export default {
-    // called when the user attempts to log in
-    login: ({ username, password }) => {
-        localStorage.setItem('username', username);
-        return Promise.resolve();
-    },
-    // called when the user clicks on the logout button
-    logout: () => {
-        localStorage.removeItem('username');
-        return Promise.resolve();
-    },
-    // called when the API returns an error
+    login: ({ username, password }) => (
+        axios
+            .post('http://localhost:3000/admin/users/sign-in', { username, password })
+            .then(r => {
+                localStorage.setItem('adminToken', r.data.token);
+            })
+            .catch(() => {
+                throw new Error('Invalid data');
+            })
+    ),
+    logout: () => (
+        axios
+            .post('http://localhost:3000/admin/users/sign-out')
+            .then(() => localStorage.removeItem('adminToken'))
+    ),
     checkError: ({ status }) => {
-        if (status === 401 || status === 403) {
-            localStorage.removeItem('username');
+        if (status === 403) {
+            localStorage.removeItem('adminToken');
+            
             return Promise.reject();
         }
-        return Promise.resolve();
     },
-    // called when the user navigates to a new location, to check for authentication
     checkAuth: () => {
-        return localStorage.getItem('username')
-            ? Promise.resolve()
-            : Promise.reject();
+        return localStorage.getItem('adminToken') ? Promise.resolve() : Promise.reject();
     },
-    // called when the user navigates to a new location, to check for permissions / roles
-    getPermissions: () => Promise.resolve(),
+    getPermissions: () => Promise.resolve()
 };

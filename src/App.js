@@ -1,5 +1,5 @@
 import React from 'react';
-import {Admin, ListGuesser, Resource} from 'react-admin';
+import {Admin, Resource} from 'react-admin';
 import restProvider from 'ra-data-simple-rest';
 import { CategoryCreate, CategoryList } from './components/Category';
 import { ProductCreate, ProductEdit, ProductList } from './components/Product';
