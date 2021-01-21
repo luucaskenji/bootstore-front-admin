@@ -1,4 +1,3 @@
-import SelectInput from '@material-ui/core/Select/SelectInput';
 import React from 'react';
 import {
     List,
@@ -8,6 +7,7 @@ import {
     DeleteButton,
     SimpleForm,
     TextInput,
+    SelectInput,
     UrlField,
     ReferenceField,
     ReferenceInput,
@@ -18,7 +18,6 @@ export const PictureList = props => {
     return <List {...props}>
         <Datagrid rowClick="edit">
             <ReferenceField source='productId' reference="products">
-                <TextField source='id' />
                 <TextField source='name' />
             </ReferenceField>
             <ImageField source="url"/>
@@ -28,12 +27,12 @@ export const PictureList = props => {
 }
 
 export const PictureCreate = props => (
-    <Create {...props}>
+    <Create {...props} basePath=''>
         <SimpleForm>
-            <ReferenceInput source='productId' reference="products">
-                <SelectInput optionText="name"/>
+            <ReferenceInput source='productId' reference='products'>
+                <SelectInput optionText='name' />
             </ReferenceInput>
-            <TextInput source="url"/>
+            <TextInput source='url'/>
         </SimpleForm>
     </Create>
 );
