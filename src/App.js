@@ -7,6 +7,7 @@ import { UserCreate, UserList } from './components/User';
 import authProvider from './providers/authProvider';
 import dataProvider from './providers/dataProvider';
 import { OrderList, OrderShow } from './components/Order';
+import { PictureCreate, PictureList } from './components/Picture';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Resource name='categoryProducts' list={CategoryProductList} create={CategoryProductCreate}/>
       <Resource name='users' list={UserList} create={UserCreate}/>
       <Resource name='orders' list={OrderList} show={OrderShow}/>
+      <Resource name='pictures' list={PictureList} create={PictureCreate}/>
     </Admin>
   );
 }
