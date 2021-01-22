@@ -6,6 +6,7 @@ const httpClient = (url, options = {}) => {
         options.headers = new Headers({ Accept: 'application/json' });
     }
     const token = localStorage.getItem('adminToken');
+    // alert(token)
     options.headers.set('Authorization', `Bearer ${token}`);
     return fetchUtils.fetchJson(url, options);
 };
