@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
     List,
     Create,
@@ -8,31 +8,30 @@ import {
     SimpleForm,
     TextInput,
     SelectInput,
-    UrlField,
     ReferenceField,
     ReferenceInput,
     ImageField
-} from 'react-admin';
+} from "react-admin";
 
 export const PictureList = props => {
     return <List {...props}>
-        <Datagrid rowClick="edit">
-            <ReferenceField source='productId' reference="products">
-                <TextField source='name' />
+        <Datagrid>
+            <ReferenceField source="productId" reference="products" label="Produto" >
+                <TextField source="name" />
             </ReferenceField>
-            <ImageField source="url"/>
+            <ImageField source="url" label="Foto principal" />
             <DeleteButton/>
         </Datagrid>
     </List>
 }
 
 export const PictureCreate = props => (
-    <Create {...props} basePath=''>
+    <Create {...props} basePath="">
         <SimpleForm>
-            <ReferenceInput source='productId' reference='products'>
-                <SelectInput optionText='name' />
+            <ReferenceInput source="productId" reference="products" label="Produto" >
+                <SelectInput optionText="name" />
             </ReferenceInput>
-            <TextInput source='url'/>
+            <TextInput source="url" label="Link da foto principal" />
         </SimpleForm>
     </Create>
 );

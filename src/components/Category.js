@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
     List,
     Create,
@@ -10,16 +10,16 @@ import {
     SimpleForm,
     TextInput,
     Edit
-} from 'react-admin';
+} from "react-admin";
 
 export const CategoryList = props => {
     return <List {...props}>
         <Datagrid rowClick="edit">
-            <TextField source='id' />
-            <TextField source='name' />
-            <DateField source="createdAt" />
-            <EditButton basePath='/categories' />
-            <DeleteButton basePath='/categories' />
+            <TextField source="id" />
+            <TextField source="name" label="Nome" />
+            <DateField source="createdAt" label="Data de criação" />
+            <EditButton basePath="/categories" label="Editar" />
+            <DeleteButton basePath="/categories" label="Excluir" />
         </Datagrid>
     </List>
 }
@@ -27,7 +27,7 @@ export const CategoryList = props => {
 export const CategoryCreate = props => (
     <Create {...props}>
         <SimpleForm>
-            <TextInput source='name' />
+            <TextInput source="name" label="Nome" />
         </SimpleForm>
     </Create>
 );
@@ -35,8 +35,8 @@ export const CategoryCreate = props => (
 export const CategoryEdit = props => (
     <Edit {...props}>
         <SimpleForm>
-            <TextField disabled source='id' />
-            <TextField source='name' />
+            <TextField disabled source="id" />
+            <TextField source="name" label="Nome" />
         </SimpleForm>
     </Edit>
 );

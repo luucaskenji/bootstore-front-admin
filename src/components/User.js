@@ -1,24 +1,22 @@
-import React from 'react';
+import React from "react";
 import {
     List,
     Create,
     Datagrid,
     TextField,
-    EditButton,
     DeleteButton,
     SimpleForm,
     TextInput,
-} from 'react-admin';
+} from "react-admin";
 
 export const UserList = props => {
     return <List {...props}>
         <Datagrid>
-            <TextField source='id' />
-            <TextField source='name' />
-            <TextField source="email" />
-            <TextField source="cpf"/>  
-            <EditButton/>
-            <DeleteButton />
+            <TextField source="id" />
+            <TextField source="name" label="Nome" />
+            <TextField source="email" label="E-mail" />
+            <TextField source="cpf" label="CPF" />  
+            <DeleteButton label="Excluir" />
         </Datagrid>
     </List>
 }
@@ -26,9 +24,9 @@ export const UserList = props => {
 export const UserCreate = props => (
     <Create {...props}>
         <SimpleForm>
-            <TextInput source='name' />
-            <TextInput source="email" />
-            <TextInput source="cpf"/>   
+            <TextInput source="name" label="Nome"  />
+            <TextInput source="email" label="E-mail"  />
+            <TextInput source="cpf" label="CPF" />
         </SimpleForm>
     </Create>
 );
