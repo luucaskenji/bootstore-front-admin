@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
     login: ({ username, password }) => {
         return axios
-            .post('http://localhost:3000/admin/users/sign-in', { username, password })
+            .post('https://medita-ai-back.herokuapp.com/admin/users/sign-in', { username, password })
             .then(r => {
                 localStorage.setItem('adminToken', r.data.token);
             })
@@ -13,7 +13,7 @@ export default {
     },
     logout: () => {
         return axios
-            .post('http://localhost:3000/admin/users/sign-out')
+            .post('https://medita-ai-back.herokuapp.com/admin/users/sign-out')
             .then(() => localStorage.removeItem('adminToken'))
     },
     checkError: ({ status }) => {

@@ -11,6 +11,6 @@ const httpClient = (url, options = {}) => {
     return fetchUtils.fetchJson(url, options);
 };
 
-const dataProvider = simpleRestProvider('http://localhost:3000/admin', httpClient);
+const dataProvider = simpleRestProvider('https://medita-ai-back.herokuapp.com/admin', httpClient);
 
 export default dataProvider;
